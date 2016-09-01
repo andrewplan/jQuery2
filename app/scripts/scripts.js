@@ -7,7 +7,7 @@ $( document ).ready(function(){
 
   function grabDataFromLocalStorage() {
     // if localStorage is not empty, parse it and store in listo.
-    if ( typeof localStorage[ 'todoData' ] === 'undefined' || localStorage[ 'todoData' ] !== '' ) {
+    if ( typeof localStorage[ 'todoData' ] !== 'undefined' && localStorage[ 'todoData' ] !== '' ) {
       listo = JSON.parse( localStorage[ 'todoData' ] );
       repopulateToDos( listo );
     }
