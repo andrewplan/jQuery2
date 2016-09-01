@@ -130,7 +130,7 @@
     bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background: #4A4B55;
 }
 
@@ -174,4 +174,13 @@
 
 .list-group-item {
     color: #fff;
+}
+
+#clear-to-dos {
+   height: 55px;
+   width: 55px;
+   border-radius: 28px;
+   background-color: #F3524A;
+   border: none;
+   color: white;
 }

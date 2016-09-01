@@ -3,13 +3,11 @@ $( document ).ready(function(){
 
   $('#newTaskForm').hide();
 
-  repopulateToDos( listo );
-
   grabDataFromLocalStorage();
 
   function grabDataFromLocalStorage() {
     // if localStorage is not empty, parse it and store in listo.
-    if ( typeof localStorage[ 'todoData' ] !== 'undefined' ) {
+    if ( typeof localStorage[ 'todoData' ] === 'undefined' || localStorage[ 'todoData' ] !== '' ) {
       listo = JSON.parse( localStorage[ 'todoData' ] );
       repopulateToDos( listo );
     }
@@ -53,8 +51,8 @@ $( document ).ready(function(){
                   '</a>'
           );
         }
-    }
-  };
+      }
+    };
 
 
   var generateId = function() {
@@ -96,8 +94,6 @@ $( document ).ready(function(){
     }
     $('#newTaskForm').slideToggle('fast', 'linear');
   };
-
-  addTask('chicken');
 
   var advanceTask = function( task ) {
     var modified = task.innerText.trim();
@@ -165,6 +161,12 @@ $( document ).ready(function(){
     e.preventDefault();
     var task = this;
     advanceTask( task );
+  });
+
+  $( document ).on( 'click', '#clear-to-dos', function( e ){
+    e.preventDefault();
+    localStorage[ 'todoData' ] = '';
+    $('#newList, #currentList, #archivedList').empty();
   });
 
 });
