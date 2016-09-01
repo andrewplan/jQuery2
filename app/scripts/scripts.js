@@ -21,36 +21,24 @@ $( document ).ready(function(){
     // take what exists in listo now and add it back to the HTML
     for ( var i = 0; i < arr.length; i++ ) {
         var currentTaskName = arr[ i ][ 'task' ];
+        var list;
         if ( arr[ i ].id === 'new' ) {
-          $('#newList').append(
-                  '<a href="#finish" class="" id="item">' +
-                  '<li class="list-group-item">' +
-                  '<h3>' + currentTaskName + '</h3>' +
-                  '<span class="arrow pull-right">' + '<i class="glyphicon glyphicon-arrow-right">' + '</span>' +
-                  '</li>' +
-                  '</a>'
-          );
+          list = 'newList'
         }
         else if ( arr[ i ].id === 'inProgress') {
-          $('#currentList').append(
-                  '<a href="#finish" class="" id="item">' +
-                  '<li class="list-group-item">' +
-                  '<h3>' + currentTaskName + '</h3>' +
-                  '<span class="arrow pull-right">' + '<i class="glyphicon glyphicon-arrow-right">' + '</span>' +
-                  '</li>' +
-                  '</a>'
-          );
+          list = 'currentList';
         }
         else {
-          $('#archivedList').append(
-                  '<a href="#finish" class="" id="item">' +
-                  '<li class="list-group-item">' +
-                  '<h3>' + currentTaskName + '</h3>' +
-                  '<span class="arrow pull-right">' + '<i class="glyphicon glyphicon-arrow-right">' + '</span>' +
-                  '</li>' +
-                  '</a>'
-          );
+          list = 'archivedList';
         }
+        $('#' + list ).append(
+                '<a href="#finish" class="" id="item">' +
+                '<li class="list-group-item">' +
+                '<h3>' + currentTaskName + '</h3>' +
+                '<span class="arrow pull-right">' + '<i class="glyphicon glyphicon-arrow-right">' + '</span>' +
+                '</li>' +
+                '</a>'
+        );
       }
     };
 
