@@ -25,7 +25,7 @@ $( document ).ready(function(){
         if ( arr[ i ].id === 'new' ) {
           list = 'newList'
         }
-        else if ( arr[ i ].id === 'inProgress') {
+        else if ( arr[ i ].id === 'inProgress' ) {
           list = 'currentList';
         }
         else {
@@ -43,21 +43,10 @@ $( document ).ready(function(){
     };
 
 
-  var generateId = function() {
-    var currentId = 0;
-    return function() {
-      currentId += 1;
-      return currentId;
-    }
-  }
-
-  var idMaker = generateId();
-
   //task constructor that takes in the new task and wraps it in an object
   var Task = function( task ) {
     this.task = task;
     this.id = 'new';
-    this.index = idMaker();
   };
 
   var addTask = function( task ) {
